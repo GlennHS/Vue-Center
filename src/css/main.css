@@ -1,0 +1,23 @@
+:root {
+  --bg-1: white;
+  --bg-2: lightgrey;
+  --font-color: black;
+  --font-color-em: #5ea1fe;
+  --font-color-link: #febb5e;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-1: #121212;
+    --bg-2: #545454;
+    --font-color: white;
+    --font-color-em: #61a2fe;
+    --font-color-link: #febc61;
+  }
+}
+body {
+  background: var(--bg-1);
+  color: var(--font-color);
+}
+
+/*# sourceMappingURL=main.css.map */

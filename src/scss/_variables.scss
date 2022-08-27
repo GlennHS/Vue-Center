@@ -1,0 +1,28 @@
+@use 'sass:color';
+
+// Set breakpoints here for media queries
+$breakpoint-xl: 1200px;
+$breakpoint-lg: 1024px;
+$breakpoint-md: 992px;
+$breakpoint-sm: 600px;
+
+$theme-1: #5ea1fe;
+$theme-2: color.complement(#5ea1fe);
+
+:root {
+  --bg-1: white;
+  --bg-2: lightgrey;
+  --font-color: black;
+  --font-color-em: #{$theme-1};
+  --font-color-link: #{$theme-2};
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-1: #121212;
+    --bg-2: #545454;
+    --font-color: white;
+    --font-color-em: #{color.adjust($theme-1, $lightness: 0.5)};
+    --font-color-link: #{color.adjust($theme-2, $lightness: 0.5)};
+  }
+}

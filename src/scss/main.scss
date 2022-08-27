@@ -1,0 +1,8 @@
+@use 'sass:color';
+
+@import 'variables';
+
+body {
+  background: var(--bg-1);
+  color: var(--font-color);
+}

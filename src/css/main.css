@@ -1,11 +1,15 @@
 @font-face {
   font-family: "Alumni Sans Pinstripe Regular";
-  src: url("../../public/fonts/AlumniSansPinstripe-Regular.ttf") format("truetype");
+  src: url("./fonts/AlumniSansPinstripe-Regular.ttf") format("truetype");
 }
 :root {
   --bg-1: white;
   --bg-2: lightgrey;
   --font-color: black;
+  --theme-1: #0864e4;
+  --theme-2: #e48808;
+  --theme-3: #ac19db;
+  --theme-4: #ee2ea5;
   --font-color-em: #0864e4;
   --font-color-link: #e48808;
   --font-header: bold 32px/1.1 Alumni Sans Pinstripe Regular;
@@ -34,7 +38,7 @@ body header {
   align-items: center;
   justify-content: center;
   width: 100vw;
-  background: black;
+  background: #020202;
   height: 150px;
 }
 body header img {

@@ -1,21 +1,36 @@
 <script setup>
 import Checkbox from "./Checkbox.vue";
+import { onMounted, onUpdated, ref } from 'vue';
 
 const props = defineProps({
   title: String,
   desc: String,
   priority: String,
   due: String,
-  complete: {
-    type: Boolean,
-    default: false
-  }
+  complete: Boolean
 })
+
+// onUpdated(strikeMe)
+</script>
+
+<script>
+const strikeMe = (ev) => {
+  const choices = [
+    "var(--theme-1)",
+    "var(--theme-2)",
+    "var(--theme-3)",
+    "var(--theme-4)"
+  ]
+
+  const chosenColor = choices[Math.floor(Math.random() * choices.length)]
+
+  ev.target.closest(".todo-item").style.setProperty("--strike", chosenColor)
+}
 </script>
 
 <template>
-  <div class="todo-item">
-    <div class="todo-checkbox-container">
+  <div class="todo-item" :class="{ done: complete }">
+    <div class="todo-checkbox-container" @click="(ev) => { complete = !complete; strikeMe(ev); }">
       <Checkbox :is-checked="complete"/>
     </div>
     <div class="todo-basic-info">
@@ -30,6 +45,7 @@ const props = defineProps({
 
 <style lang="scss" scoped>
   .todo-item {
+    --strike: #fff; /* fallback if vue hool fails */
     display: grid;
     grid-template-areas: 'c d';
     grid-template-columns: 20% 80%;
@@ -42,12 +58,10 @@ const props = defineProps({
     .todo-checkbox-container {
       grid-area: c;
       display: flex;
-      justify-content: flex-end;
+      justify-content: center;
       align-items: center;
       margin-right: 30px;
-      img {
-        width: 20px;
-      }
+      background: white;
     }
 
     .todo-basic-info {
@@ -60,9 +74,32 @@ const props = defineProps({
       .todo-title { font: var(--font-header); }
     }
 
+    &.done span {
+      position: relative;
+    }
+
+    &.done span:first-child::after {
+      content: ' ';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--strike);
+      animation-name: strike;
+      animation-duration: 0.5s;
+      animation-timing-function: linear;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards; 
+    }
+
     &:hover {
       transform: scale(1.05);
-      
+    }
+
+    @keyframes strike{
+      0%   { width : 0; }
+      100% { width: 100%; }
     }
   }
 </style>

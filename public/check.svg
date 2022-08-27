@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="160.46 38.84 65 70" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <linearGradient id="gradient-1" bx:pinned="true">
+      <title>Center-Main</title>
+      <stop offset="0" style="stop-color: rgb(8, 100, 228);"/>
+      <stop offset="0.678" style="stop-color: rgb(172, 25, 219);"/>
+      <stop offset="1" style="stop-color: rgb(238, 46, 165);"/>
+    </linearGradient>
+    <linearGradient id="gradient-1-0" gradientUnits="userSpaceOnUse" x1="253.102" y1="184.444" x2="253.102" y2="241.731" gradientTransform="matrix(1, 0, 0, 1, -60.025558, -140.059631)" xlink:href="#gradient-1"/>
+  </defs>
+  <path style="fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 10px; stroke: url(#gradient-1-0);" d="M 166.642 82.162 C 168.937 84.328 185.455 102.678 184.418 101.608 C 185.469 101.871 219.419 44.384 219.419 44.384"/>
+</svg>

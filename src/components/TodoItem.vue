@@ -15,12 +15,12 @@ const props = defineProps({
 
 <template>
   <div class="todo-item">
-    <div class="todo-checkbox">
+    <div class="todo-checkbox-container">
       <Checkbox :is-checked="complete"/>
     </div>
     <div class="todo-basic-info">
       <span class="todo-title">{{ title }}</span>
-      <span class="todo-title">{{ desc.length > 80 ? desc.slice(0,80) + "..." : desc }}</span>
+      <span class="todo-desc">{{ desc.length > 80 ? desc.slice(0,80) + "..." : desc }}</span>
     </div>
     <div class="todo-details">
 
@@ -33,11 +33,18 @@ const props = defineProps({
     display: grid;
     grid-template-areas: 'c d';
     grid-template-columns: 20% 80%;
+    margin: 10px 0;
+    border-top: 2px solid var(--bg-2);
+    border-bottom: 2px solid var(--bg-2);
+    transition: 0.25s ease;
+    cursor: pointer;
 
-    .todo-checkbox {
+    .todo-checkbox-container {
       grid-area: c;
-      text-align: right;
-      padding-right: 30px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-right: 30px;
       img {
         width: 20px;
       }
@@ -49,6 +56,13 @@ const props = defineProps({
       flex-flow: column nowrap;
       justify-content: space-around;
       align-items: flex-start;
+
+      .todo-title { font: var(--font-header); }
+    }
+
+    &:hover {
+      transform: scale(1.05);
+      
     }
   }
 </style>

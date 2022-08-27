@@ -5,11 +5,17 @@
 </script>
 
 <template>
-  <img src='https://dummyimage.com/100x100/ffffff/000000' alt='' :class="{ checked: isChecked }"/>
+  <div :class="{ checked: isChecked }" @click="isChecked = !isChecked" class="todo-checkbox"/>
 </template>
 
 <style lang="scss" scoped>
-  .checked {
-    border: 5px solid green;
+  .todo-checkbox {
+    width: 50px;
+    height: 50px;
+    background-image: url('https://dummyimage.com/50x50/ffffff/ffffff');
+
+    &.checked {
+      background-image: url('https://dummyimage.com/50x50/99ff99/000000')
+    }
   }
 </style>

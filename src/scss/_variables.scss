@@ -1,13 +1,19 @@
 @use 'sass:color';
 
+@import 'fonts';
+
 // Set breakpoints here for media queries
 $breakpoint-xl: 1200px;
 $breakpoint-lg: 1024px;
 $breakpoint-md: 992px;
 $breakpoint-sm: 600px;
 
-$theme-1: #5ea1fe;
-$theme-2: color.complement(#5ea1fe);
+$theme-1: #0864e4;
+$theme-2: color.complement($theme-1);
+$theme-3: #ac19db;
+$theme-4: #ee2ea5;
+
+$font-header: bold 32px/1.1 'Alumni Sans Pinstripe Regular';
 
 :root {
   --bg-1: white;
@@ -15,6 +21,7 @@ $theme-2: color.complement(#5ea1fe);
   --font-color: black;
   --font-color-em: #{$theme-1};
   --font-color-link: #{$theme-2};
+  --font-header: #{$font-header};
 }
 
 @media (prefers-color-scheme: dark) {

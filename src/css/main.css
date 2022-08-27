@@ -1,9 +1,14 @@
+@font-face {
+  font-family: "Alumni Sans Pinstripe Regular";
+  src: url("../../public/fonts/AlumniSansPinstripe-Regular.ttf") format("truetype");
+}
 :root {
   --bg-1: white;
   --bg-2: lightgrey;
   --font-color: black;
-  --font-color-em: #5ea1fe;
-  --font-color-link: #febb5e;
+  --font-color-em: #0864e4;
+  --font-color-link: #e48808;
+  --font-header: bold 32px/1.1 Alumni Sans Pinstripe Regular;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -11,13 +16,29 @@
     --bg-1: #121212;
     --bg-2: #545454;
     --font-color: white;
-    --font-color-em: #61a2fe;
-    --font-color-link: #febc61;
+    --font-color-em: #0865e6;
+    --font-color-link: #e68908;
   }
 }
 body {
   background: var(--bg-1);
   color: var(--font-color);
+}
+body .main-container {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+body header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  background: black;
+  height: 150px;
+}
+body header img {
+  height: 100%;
 }
 
 /*# sourceMappingURL=main.css.map */

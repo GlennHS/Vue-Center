@@ -16,6 +16,8 @@ const props = defineProps({
     default: false
   }
 })
+
+const getToday = () => (new Date).toLocaleDateString('ko-KR')
 </script>
 
 <script>
@@ -53,6 +55,7 @@ const strikeMe = (ev) => {
         :enableTimePicker="false"
         :monthChangeOnScroll="false"
       />
+      <button v-else @click="due = getToday()">Add Due Date</button>
     </div>
     <div @click="isActive = !isActive" class="todo-expander-bar">
       <i class="fa-solid fa-arrows-down-to-line"></i>

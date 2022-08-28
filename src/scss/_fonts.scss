@@ -2,3 +2,17 @@
   font-family: 'Alumni Sans Pinstripe Regular';
   src: url('./fonts/AlumniSansPinstripe-Regular.ttf') format('truetype');
 }
+
+@font-face {
+  font-family: 'Open Sans Regular';
+  src: url('./fonts/OpenSans-VariableFont_wdth,wght.ttf') format('truetype') tech('variations');
+  font-weight: 300 800;
+  font-stretch: 75% 100%;
+}
+
+@font-face {
+  font-family: 'Open Sans Italic';
+  src: url('./fonts/OpenSans-Italic-VariableFont_wdth,wght.ttf') format('truetype') tech('variations');
+  font-weight: 300 800;
+  font-stretch: 75% 100%;
+}

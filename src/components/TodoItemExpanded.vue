@@ -2,7 +2,7 @@
 import Checkbox from "./Checkbox.vue";
 import { ref } from 'vue';
 import Datepicker from '@vuepic/vue-datepicker';
-
+    
 const date = ref();
 
 const props = defineProps({
@@ -32,13 +32,14 @@ const strikeMe = (ev) => {
 <template>
   <div class="todo-item" :class="{ done: complete }">
     <div class="todo-checkbox-container" @click="(ev) => { complete = !complete; strikeMe(ev); }">
-      <div class="todo-checkbox-wrap">
-        <Checkbox :is-checked="complete"/>
-      </div>
+      <Checkbox :is-checked="complete"/>
     </div>
     <div class="todo-basic-info">
       <span class="todo-title">{{ title }}{{ due ? " || " + due : "" }}</span>
       <span class="todo-desc">{{ desc.length > 80 ? desc.slice(0,80) + "..." : desc }}</span>
+    </div>
+    <div class="todo-details">
+      <Datepicker />
     </div>
   </div>
 </template>
@@ -58,19 +59,10 @@ const strikeMe = (ev) => {
     .todo-checkbox-container {
       grid-area: c;
       display: flex;
-      justify-content: right;
+      justify-content: center;
       align-items: center;
-      margin: 20px 30px 20px 0;
-
-      .todo-checkbox-wrap {
-        background: white;
-        height: 30px;
-        width: 30px;
-        padding: 0 0 5px 5px;
-        display: flex;
-        align-items: flex-start;
-        justify-content: flex-start;
-      }
+      margin-right: 30px;
+      background: white;
     }
 
     .todo-basic-info {

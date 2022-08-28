@@ -10,6 +10,7 @@
     "watch": "sass --watch src/scss:src/css/"
   },
   "dependencies": {
+    "@vuepic/vue-datepicker": "^3.4.6",
     "vue": "^3.2.37"
   },
   "devDependencies": {

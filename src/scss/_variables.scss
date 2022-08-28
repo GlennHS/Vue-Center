@@ -14,24 +14,32 @@ $theme-3: #ac19db;
 $theme-4: #ee2ea5;
 
 $font-header: bold 32px/1.1 'Alumni Sans Pinstripe Regular';
+$font-body: 16px/1.1 'Open Sans Regular';
+$font-body-italic: 16px/1.1 'Open Sans Italic';
 
 :root {
   --bg-1: white;
   --bg-2: lightgrey;
-  --font-color: black;
+  
   --theme-1: #{$theme-1};
   --theme-2: #{$theme-2};
   --theme-3: #{$theme-3};
   --theme-4: #{$theme-4};
+  
+  --font-color: black;
   --font-color-em: #{$theme-1};
   --font-color-link: #{$theme-2};
+
   --font-header: #{$font-header};
+  --font-body: #{$font-body};
 }
 
+// Dark mode overrides
 @media (prefers-color-scheme: dark) {
   :root {
     --bg-1: #121212;
     --bg-2: #545454;
+    
     --font-color: white;
     --font-color-em: #{color.adjust($theme-1, $lightness: 0.5)};
     --font-color-link: #{color.adjust($theme-2, $lightness: 0.5)};

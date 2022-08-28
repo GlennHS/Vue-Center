@@ -2,17 +2,30 @@
   font-family: "Alumni Sans Pinstripe Regular";
   src: url("./fonts/AlumniSansPinstripe-Regular.ttf") format("truetype");
 }
+@font-face {
+  font-family: "Open Sans Regular";
+  src: url("./fonts/OpenSans-VariableFont_wdth,wght.ttf") format("truetype") tech("variations");
+  font-weight: 300 800;
+  font-stretch: 75% 100%;
+}
+@font-face {
+  font-family: "Open Sans Italic";
+  src: url("./fonts/OpenSans-Italic-VariableFont_wdth,wght.ttf") format("truetype") tech("variations");
+  font-weight: 300 800;
+  font-stretch: 75% 100%;
+}
 :root {
   --bg-1: white;
   --bg-2: lightgrey;
-  --font-color: black;
   --theme-1: #0864e4;
   --theme-2: #e48808;
   --theme-3: #ac19db;
   --theme-4: #ee2ea5;
+  --font-color: black;
   --font-color-em: #0864e4;
   --font-color-link: #e48808;
   --font-header: bold 32px/1.1 Alumni Sans Pinstripe Regular;
+  --font-body: 16px/1.1 Open Sans Regular;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -25,8 +38,11 @@
   }
 }
 body {
+  margin: 0;
+  padding: 0;
   background: var(--bg-1);
   color: var(--font-color);
+  font: var(--font-body);
 }
 body .main-container {
   display: flex;
@@ -38,7 +54,7 @@ body header {
   align-items: center;
   justify-content: center;
   width: 100vw;
-  background: #020202;
+  background: black;
   height: 150px;
 }
 body header img {

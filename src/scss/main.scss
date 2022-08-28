@@ -3,8 +3,11 @@
 @import 'variables';
 
 body {
+  margin: 0;
+  padding: 0;
   background: var(--bg-1);
   color: var(--font-color);
+  font: var(--font-body);
 
   .main-container {
     display: flex;
@@ -17,7 +20,7 @@ body {
     align-items: center;
     justify-content: center;
     width: 100vw;
-    background: #020202;
+    background: black;
     height: 150px;
 
     img {

@@ -24,6 +24,8 @@
 
 <style lang="scss" scoped>
   .todo-checkbox {
+    transform-origin: 0 100%;
+    transform: scale(1.3);
 
     path {
       stroke-dasharray: 1000;
@@ -33,7 +35,7 @@
     &.checked {
 
       path {
-        animation: swish 2.5s forwards,
+        animation: 2.5s swish forwards,
           pop 1s forwards;
       }
     }

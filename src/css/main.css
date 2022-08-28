@@ -17,24 +17,24 @@
 :root {
   --bg-1: white;
   --bg-2: lightgrey;
-  --theme-1: #0864e4;
-  --theme-2: #e48808;
-  --theme-3: #ac19db;
-  --theme-4: #ee2ea5;
+  --bg-header: white;
   --font-color: black;
-  --font-color-em: #0864e4;
-  --font-color-link: #e48808;
-  --font-header: bold 32px/1.1 Alumni Sans Pinstripe Regular;
-  --font-body: 16px/1.1 Open Sans Regular;
+  --font-color-em: #ee2ea5;
+  --font-color-link: #0864e4;
+  --color-cobalt-blue: #0864e4;
+  --color-sunset-orange: #e48808;
+  --color-royal-purple: #ac19db;
+  --color-bright-pink: #ee2ea5;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --bg-1: #121212;
-    --bg-2: #545454;
+    --bg-2: #232323;
+    --bg-header: black;
     --font-color: white;
-    --font-color-em: #0865e6;
-    --font-color-link: #e68908;
+    --font-color-em: #ee2ea5;
+    --font-color-link: #edf4fe;
   }
 }
 body {
@@ -54,11 +54,14 @@ body header {
   align-items: center;
   justify-content: center;
   width: 100vw;
-  background: black;
+  background: var(--bg-header);
   height: 150px;
 }
 body header img {
   height: 100%;
+}
+body strong {
+  color: var(--font-color-em);
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -5,9 +5,13 @@ import '@vuepic/vue-datepicker/dist/main.css'
 </script>
 
 <template>
-  <TodoList></TodoList>
+  <div class="app-container">
+    <TodoList></TodoList>
+  </div>
 </template>
 
 <style scoped>
-
+  .app-container {
+    width: 1000px;
+  }
 </style>

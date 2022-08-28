@@ -8,40 +8,44 @@ $breakpoint-lg: 1024px;
 $breakpoint-md: 992px;
 $breakpoint-sm: 600px;
 
-$theme-1: #0864e4;
-$theme-2: color.complement($theme-1);
-$theme-3: #ac19db;
-$theme-4: #ee2ea5;
+// App colors
+$color-cobalt-blue: #0864e4;
+$color-sunset-orange: color.complement($color-cobalt-blue);
+$color-royal-purple: #ac19db;
+$color-bright-pink: #ee2ea5;
 
+// App fonts as fetched from './fonts.scss'
 $font-header: bold 32px/1.1 'Alumni Sans Pinstripe Regular';
 $font-body: 16px/1.1 'Open Sans Regular';
 $font-body-italic: 16px/1.1 'Open Sans Italic';
 
+// Define variables that need to change based on dark/light mode in css or in Vue js so I can use them inside components
+// Feels like there should be a better way but it seems not
+
 :root {
   --bg-1: white;
   --bg-2: lightgrey;
-  
-  --theme-1: #{$theme-1};
-  --theme-2: #{$theme-2};
-  --theme-3: #{$theme-3};
-  --theme-4: #{$theme-4};
+  --bg-header : white;
   
   --font-color: black;
-  --font-color-em: #{$theme-1};
-  --font-color-link: #{$theme-2};
+  --font-color-em: #{$color-bright-pink};
+  --font-color-link: #{$color-cobalt-blue};
 
-  --font-header: #{$font-header};
-  --font-body: #{$font-body};
+  --color-cobalt-blue: #{$color-cobalt-blue};
+  --color-sunset-orange: #{$color-sunset-orange};
+  --color-royal-purple: #{$color-royal-purple};
+  --color-bright-pink: #{$color-bright-pink};
 }
 
 // Dark mode overrides
 @media (prefers-color-scheme: dark) {
   :root {
     --bg-1: #121212;
-    --bg-2: #545454;
-    
+    --bg-2: #232323;
+    --bg-header : black;
+
     --font-color: white;
-    --font-color-em: #{color.adjust($theme-1, $lightness: 0.5)};
-    --font-color-link: #{color.adjust($theme-2, $lightness: 0.5)};
+    --font-color-em: #{$color-bright-pink};
+    --font-color-link: #{color.adjust($color-cobalt-blue, $lightness: 50%)};
   }
 }

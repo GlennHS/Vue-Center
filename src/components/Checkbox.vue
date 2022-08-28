@@ -23,9 +23,11 @@
 </template>
 
 <style lang="scss" scoped>
+  $normal-scale: 1.3;
+
   .todo-checkbox {
     transform-origin: 0 100%;
-    transform: scale(1.3);
+    transform: scale($normal-scale);
 
     path {
       stroke-dasharray: 1000;
@@ -35,8 +37,7 @@
     &.checked {
 
       path {
-        animation: 2.5s swish forwards,
-          pop 1s forwards;
+        animation: 2.5s swish forwards;
       }
     }
   }
@@ -47,33 +48,6 @@
     }
     to {
       stroke-dashoffset: 0;
-    }
-  }
-
-  @keyframes pop {
-    0% {
-      width: 90%;
-      height: 90%;
-    }
-
-    50% {
-      width: 90%;
-      height: 90%;
-    }
-
-    70% {
-      width: 90%;
-      height: 90%;
-    }
-
-    90% {
-      width: 100%;
-      height: 100%;
-    }
-
-    100% {
-      width: 90%;
-      height: 90%;
     }
   }
 </style>

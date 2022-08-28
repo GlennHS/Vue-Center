@@ -27,11 +27,13 @@ const todos = [
 </script>
 
 <template>
-  <div v-for="todo in todos">
+  <div class="todo-list" v-for="todo in todos">
     <TodoItem v-bind="todo" />
   </div>
 </template>
 
 <style scoped>
-
+  .todo-list {
+    width:100%;
+  }
 </style>

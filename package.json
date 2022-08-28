@@ -10,6 +10,7 @@
     "watch": "sass --watch src/scss:src/css/"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.1.2",
     "@vuepic/vue-datepicker": "^3.4.6",
     "vue": "^3.2.37"
   },

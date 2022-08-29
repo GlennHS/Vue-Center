@@ -46,8 +46,7 @@ const strikeMe = (ev) => {
     <div class="todo-basic-info">
       <span class="todo-title">{{ title }}</span>
       <div class="todo-priority-wrap">
-        <PriorityPicker v-if="!isActive"
-          :priority="priority" :is-editable="isActive"/>
+        <PriorityPicker v-if="!isActive" :priority="priority" :is-editable="isActive"/>
       </div>
       <span class="todo-desc">{{ desc.length > 110 ? desc.slice(0,110) + "..." : desc }}</span>
     </div>
@@ -66,7 +65,7 @@ const strikeMe = (ev) => {
         Add Due Date
       </button>
       
-      <PriorityPicker :priority="priority" :is-editable="isActive"/>
+      <PriorityPicker :priority="priority" :is-editable="isActive" @priority-change="(p) => priority = p"/>
     </div>
     <div @click="isActive = !isActive" class="todo-expander-bar">
       <i class="fa-solid fa-arrows-down-to-line"></i>

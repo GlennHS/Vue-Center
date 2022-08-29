@@ -13,47 +13,29 @@
   function setPriority(newPriority) {
     if(isEditable) priority = newPriority;
   }
-</script>
 
-<script>
-  // switch (priority) {
-  //   case 'low':
-      
-  //     break;
-  //   case 'med':
-      
-  //     break;
-  //   case 'high':
-      
-  //     break;
-  //   case 'critical':
-      
-  //     break;
-
-  //   default:
-  //     break;
-  // }
+  function getPriority() { return priority; }
 </script>
 
 <template>
   <div class="priority-picker" :class="{ editable: isEditable}">
     <div class="priority low-priority"
-      @click="() => { if(isEditable) priority = 'low' }" :class="{selected : priority == 'low'}">
+      @click="() => { if(isEditable) priority = 'low'; $emit('priorityChange', 'low') }" :class="{selected : priority == 'low'}">
       <i class="fa-solid fa-check"></i>
       <span v-if="isEditable">Low</span>
     </div>
     <div class="priority med-priority"
-      @click="() => { if(isEditable) priority = 'med' }" :class="{selected : priority == 'med'}">
+      @click="() => { if(isEditable) priority = 'med'; $emit('priorityChange', 'med') }" :class="{selected : priority == 'med'}">
       <i class="fa-solid fa-exclamation"></i>
       <span v-if="isEditable">Med</span>
     </div>
     <div class="priority high-priority"
-      @click="() => { if(isEditable) priority = 'high' }" :class="{selected : priority == 'high'}">
+      @click="() => { if(isEditable) priority = 'high'; $emit('priorityChange', 'high')  }" :class="{selected : priority == 'high'}">
       <i class="fa-solid fa-triangle-exclamation"></i>
       <span v-if="isEditable">High</span>
     </div>
     <div class="priority critical-priority"
-      @click="() => { if(isEditable) priority = 'critical' }" :class="{selected : priority == 'critical'}">
+      @click="() => { if(isEditable) priority = 'critical'; $emit('priorityChange', 'critical')  }" :class="{selected : priority == 'critical'}">
       <i class="fa-solid fa-radiation"></i>
       <span v-if="isEditable">V. High</span>
     </div>

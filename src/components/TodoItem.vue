@@ -37,7 +37,7 @@ const strikeMe = (ev) => {
 </script>
 
 <template>
-  <div class="todo-item" :class="{ done: complete }">
+  <div class="todo-item" :class="{ done: complete, active: isActive }">
     <div class="todo-checkbox-container" @click="(ev) => { complete = !complete; strikeMe(ev); }">
       <div class="todo-checkbox-wrap">
         <Checkbox :is-checked="complete"/>
@@ -136,6 +136,10 @@ const strikeMe = (ev) => {
       height: 100%;
       transition-property: height, border-radius;
       transition-duration: 0.25s;
+    }
+
+    &.active .todo-expander-bar i {
+      transform: rotate(180deg);
     }
 
     &:hover .todo-expander-bar {

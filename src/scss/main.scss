@@ -32,4 +32,42 @@ body {
     color: var(--font-color-em);
   }
 
+  button {
+    color: white;
+    background: $color-royal-purple;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 2px solid white;
+    transition-property: background, box-shadow, transform;
+    transition-duration: 0.15s;
+    cursor: pointer;
+
+    &:hover {
+      background: color.adjust($color-royal-purple, $lightness: 20%);
+      box-shadow: 0 0 15px inset #888;
+    }
+
+    &:active {
+      box-shadow: 0 0 15px inset #111;
+      transform: translateY(5px);
+    }
+  }
+
+  .dp__clear_icon {
+    transition: border-left 0.3s ease-out;
+
+    path {
+      transition: color 0.3s ease-out;
+    }
+
+    &:hover {
+      border-left: 2px solid red;
+  
+      path {
+        color: red;
+        stroke-width: 3px;
+      }
+    }
+  }
+
 }

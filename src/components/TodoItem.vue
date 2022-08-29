@@ -2,6 +2,7 @@
 import Checkbox from "./Checkbox.vue";
 import { ref } from 'vue';
 import Datepicker from '@vuepic/vue-datepicker';
+import PriorityPicker from './PriorityPicker.vue';
 
 const date = ref();
 
@@ -55,7 +56,13 @@ const strikeMe = (ev) => {
         :enableTimePicker="false"
         :monthChangeOnScroll="false"
       />
-      <button v-else @click="due = getToday()">Add Due Date</button>
+      <button v-else
+        class="todo-due-button"
+        @click="due = getToday()">
+        Add Due Date
+      </button>
+      
+      <PriorityPicker :priority="priority"/>
     </div>
     <div @click="isActive = !isActive" class="todo-expander-bar">
       <i class="fa-solid fa-arrows-down-to-line"></i>

@@ -3,6 +3,16 @@
   src: url("./fonts/AlumniSansPinstripe-Regular.ttf") format("truetype");
 }
 @font-face {
+  font-family: "Alumni Sans Regular";
+  src: url("./fonts/AlumniSans-VariableFont_wght.ttf") format("truetype") tech("variations");
+  font-weight: 100 900;
+}
+@font-face {
+  font-family: "Alumni Sans Italic";
+  src: url("./fonts/AlumniSans-Italic-VariableFont_wght.ttf") format("truetype") tech("variations");
+  font-weight: 100 900;
+}
+@font-face {
   font-family: "Open Sans Regular";
   src: url("./fonts/OpenSans-VariableFont_wdth,wght.ttf") format("truetype") tech("variations");
   font-weight: 300 800;
@@ -62,6 +72,37 @@ body header img {
 }
 body strong {
   color: var(--font-color-em);
+}
+body button {
+  color: white;
+  background: #ac19db;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 2px solid white;
+  transition-property: background, box-shadow, transform;
+  transition-duration: 0.15s;
+  cursor: pointer;
+}
+body button:hover {
+  background: #cf6cee;
+  box-shadow: 0 0 15px inset #888;
+}
+body button:active {
+  box-shadow: 0 0 15px inset #111;
+  transform: translateY(5px);
+}
+body .dp__clear_icon {
+  transition: border-left 0.3s ease-out;
+}
+body .dp__clear_icon path {
+  transition: color 0.3s ease-out;
+}
+body .dp__clear_icon:hover {
+  border-left: 2px solid red;
+}
+body .dp__clear_icon:hover path {
+  color: red;
+  stroke-width: 3px;
 }
 
 /*# sourceMappingURL=main.css.map */

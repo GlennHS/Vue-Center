@@ -45,7 +45,11 @@ const strikeMe = (ev) => {
     </div>
     <div class="todo-basic-info">
       <span class="todo-title">{{ title }}</span>
-      <span class="todo-desc">{{ desc.length > 60 ? desc.slice(0,60) + "..." : desc }}</span>
+      <div class="todo-priority-wrap">
+        <PriorityPicker v-if="!isActive"
+          :priority="priority" :is-editable="isActive"/>
+      </div>
+      <span class="todo-desc">{{ desc.length > 110 ? desc.slice(0,110) + "..." : desc }}</span>
     </div>
     <div :class="{ open: isActive }" class="todo-expanded-info">
       <Datepicker
@@ -62,7 +66,7 @@ const strikeMe = (ev) => {
         Add Due Date
       </button>
       
-      <PriorityPicker :priority="priority"/>
+      <PriorityPicker :priority="priority" :is-editable="isActive"/>
     </div>
     <div @click="isActive = !isActive" class="todo-expander-bar">
       <i class="fa-solid fa-arrows-down-to-line"></i>
@@ -75,15 +79,15 @@ const strikeMe = (ev) => {
     --strike: $--color-cobalt-blue; /* fallback if vue hook fails */
     width: 100%;
     margin: 30px 0;
+    padding-top: 10px;
     display: grid;
     grid-template-areas: 'c d'
       'e e'
       'b b';
-    grid-template-columns: 20% 80%;
+    grid-template-columns: 10% 90%;
     background: var(--bg-2);
     border-top: 2px solid $color-royal-purple;
     transition: transform 0.25s ease;
-    cursor: pointer;
 
     .todo-checkbox-container {
       grid-area: c;
@@ -105,12 +109,31 @@ const strikeMe = (ev) => {
 
     .todo-basic-info {
       grid-area: d;
-      display: flex;
-      flex-flow: column nowrap;
-      justify-content: space-around;
-      align-items: flex-start;
+      display: grid;
+      grid-template-areas: 't p'
+        'd d';
+      grid-template-columns: 70% 30%;
+      row-gap: 10px;
+      padding-bottom: 10px;
+      justify-content: center;
 
-      .todo-title { font: var(--font-header); }
+      .todo-title {
+        grid-area: t;
+        font: $font-header;
+        align-self: center
+      }
+
+      .todo-desc { grid-area: d; }
+      .todo-priority-wrap {
+        grid-area: p;
+        width: 100%;
+        display: flex;
+        justify-content: right;
+
+        .priority-picker {
+          margin-right: 10px;
+        }
+      }
     }
 
     .todo-expanded-info {
@@ -136,6 +159,7 @@ const strikeMe = (ev) => {
       height: 100%;
       transition-property: height, border-radius;
       transition-duration: 0.25s;
+      cursor: pointer;;
     }
 
     &.active .todo-expander-bar i {

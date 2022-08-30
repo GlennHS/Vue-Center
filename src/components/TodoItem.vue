@@ -44,7 +44,7 @@ const strikeMe = (ev) => {
       </div>
     </div>
     <div class="todo-basic-info">
-      <span class="todo-title">{{ title }}</span>
+      <span class="todo-title">{{ title.length > 50 ? title.slice(0,50) + "..." : title }}</span>
       <div class="todo-priority-wrap">
         <PriorityPicker v-if="!isActive" :priority="priority" :is-editable="isActive"/>
       </div>

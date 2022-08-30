@@ -21,7 +21,7 @@
   <div class="priority-picker" :class="{ editable: isEditable}">
     <div class="priority low-priority"
       @click="() => { if(isEditable) priority = 'low'; $emit('priorityChange', 'low') }" :class="{selected : priority == 'low'}">
-      <i class="fa-solid fa-check"></i>
+      <i class="fa-solid fa-info"></i>
       <span v-if="isEditable">Low</span>
     </div>
     <div class="priority med-priority"

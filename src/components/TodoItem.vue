@@ -172,6 +172,9 @@ const strikeMe = (ev) => {
 
     &.done .todo-title {
       position: relative;
+      display: inline-block;
+      block-size: fit-content;
+      width: fit-content;
     }
 
     &.done .todo-title::after {

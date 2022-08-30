@@ -75,7 +75,7 @@ const strikeMe = (ev) => {
 
 <style lang="scss" scoped>
   .todo-item {
-    --strike: $--color-cobalt-blue; /* fallback if vue hook fails */
+    --strike: var(--color-cobalt-blue); /* fallback if vue hook fails */
     width: 100%;
     margin: 30px 0;
     padding-top: 10px;

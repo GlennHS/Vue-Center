@@ -52,7 +52,7 @@ body {
   padding: 0;
   background: var(--bg-1);
   color: var(--font-color);
-  font: var(--font-body);
+  font: 400 18px/1.1 "Open Sans Regular";
 }
 body .main-container {
   display: flex;

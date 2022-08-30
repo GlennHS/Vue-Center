@@ -16,8 +16,8 @@ $color-bright-pink: #ee2ea5;
 
 // App fonts as fetched from './fonts.scss'
 $font-header: bold 28px/1.1 'Alumni Sans Regular';
-$font-body: 16px/1.1 'Open Sans Regular';
-$font-body-italic: 16px/1.1 'Open Sans Italic';
+$font-body: 400 18px/1.1 'Open Sans Regular';
+$font-body-italic: italic 18px/1.1 'Open Sans Italic';
 
 // Define variables that need to change based on dark/light mode in css or in Vue js so I can use them inside components
 // Feels like there should be a better way but it seems not

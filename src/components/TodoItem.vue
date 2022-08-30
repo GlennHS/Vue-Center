@@ -44,11 +44,12 @@ const strikeMe = (ev) => {
       </div>
     </div>
     <div class="todo-basic-info">
-      <span class="todo-title">{{ title.length > 50 ? title.slice(0,50) + "..." : title }}</span>
+      <!-- <span class="todo-title">{{ title.length > 50 && !isActive ? title.slice(0,50) + "..." : title }}</span> -->
+      <input class="todo-title" type="text" name="title" v-model="title" :disabled="!isActive">
       <div class="todo-priority-wrap">
         <PriorityPicker v-if="!isActive" :priority="priority" :is-editable="isActive"/>
       </div>
-      <span class="todo-desc">{{ desc.length > 110 ? desc.slice(0,110) + "..." : desc }}</span>
+      <span class="todo-desc">{{ desc.length > 110 && !isActive ? desc.slice(0,110) + "..." : desc }}</span>
     </div>
     <div :class="{ open: isActive }" class="todo-expanded-info">
       <Datepicker
@@ -57,8 +58,7 @@ const strikeMe = (ev) => {
         auto-apply=""
         :closeOnAutoApply="false"
         :enableTimePicker="false"
-        :monthChangeOnScroll="false"
-      />
+        :monthChangeOnScroll="false" />
       <button v-else
         class="todo-due-button"
         @click="due = getToday()">
@@ -116,10 +116,14 @@ const strikeMe = (ev) => {
       padding-bottom: 10px;
       justify-content: center;
 
+      input { width: 100%!important; }
+
       .todo-title {
+        background: var(--bg-2);
+        border: none;
         grid-area: t;
         font: $font-header;
-        align-self: center
+        color: var(--font-color);
       }
 
       .todo-desc { grid-area: d; }

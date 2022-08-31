@@ -44,12 +44,11 @@ const strikeMe = (ev) => {
       </div>
     </div>
     <div class="todo-basic-info">
-      <!-- <span class="todo-title">{{ title.length > 50 && !isActive ? title.slice(0,50) + "..." : title }}</span> -->
       <input class="todo-title" type="text" name="title" v-model="title" :disabled="!isActive">
       <div class="todo-priority-wrap">
         <PriorityPicker v-if="!isActive" :priority="priority" :is-editable="isActive"/>
       </div>
-      <span class="todo-desc">{{ desc.length > 110 && !isActive ? desc.slice(0,110) + "..." : desc }}</span>
+      <input type="text" name="desc" v-model="desc" :disabled="!isActive">
     </div>
     <div :class="{ open: isActive }" class="todo-expanded-info">
       <Datepicker
@@ -80,16 +79,16 @@ const strikeMe = (ev) => {
     margin: 30px 0;
     padding-top: 10px;
     display: grid;
-    grid-template-areas: 'c d'
-      'e e'
-      'b b';
+    grid-template-areas: 'checkbox basic-info'
+      'expanded-info expanded-info'
+      'bar bar';
     grid-template-columns: 10% 90%;
     background: var(--bg-2);
     border-top: 2px solid $color-royal-purple;
     transition: transform 0.25s ease;
 
     .todo-checkbox-container {
-      grid-area: c;
+      grid-area: checkbox;
       display: flex;
       justify-content: right;
       align-items: center;
@@ -107,7 +106,7 @@ const strikeMe = (ev) => {
     }
 
     .todo-basic-info {
-      grid-area: d;
+      grid-area: basic-info;
       display: grid;
       grid-template-areas: 't p'
         'd d';
@@ -116,17 +115,23 @@ const strikeMe = (ev) => {
       padding-bottom: 10px;
       justify-content: center;
 
-      input { width: 100%!important; }
-
-      .todo-title {
+      input {
+        width: 100%!important;
         background: var(--bg-2);
         border: none;
-        grid-area: t;
-        font: $font-header;
         color: var(--font-color);
+        text-overflow: ellipsis;
       }
 
-      .todo-desc { grid-area: d; }
+      .todo-title {
+        grid-area: t;
+        font: $font-header;
+      }
+
+      .todo-desc {
+        grid-area: d;
+      }
+
       .todo-priority-wrap {
         grid-area: p;
         width: 100%;
@@ -140,7 +145,7 @@ const strikeMe = (ev) => {
     }
 
     .todo-expanded-info {
-      grid-area: e;
+      grid-area: expanded-info;
       max-height: 0;
       overflow: hidden;
       // transition: max-height 0.5s linear; //Disabling until I can make it look less jarring
@@ -154,7 +159,7 @@ const strikeMe = (ev) => {
     .todo-expander-bar {
       padding: 5px 0;
       background: $color-bright-pink;
-      grid-area: b;
+      grid-area: bar;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -174,22 +179,25 @@ const strikeMe = (ev) => {
       border-radius: 0 0 25px 25px;
     }
 
-    &.done .todo-title {
-      position: relative;
-      display: inline-block;
-      block-size: fit-content;
-      width: fit-content;
-    }
+    &.done {
 
-    &.done .todo-title::after {
-      content: ' ';
-      position: absolute;
-      top: 50%;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background-color: var(--strike);
-      animation: 0.5s strike linear forwards;
+      .todo-title {
+        position: relative;
+        display: inline-block;
+        block-size: fit-content;
+        width: fit-content;
+      }
+  
+      .todo-title::after {
+        content: ' ';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background-color: var(--strike);
+        animation: 0.5s strike linear forwards;
+      }
     }
 
     &:hover {
